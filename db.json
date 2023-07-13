@@ -2,8 +2,35 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "firstname": "raga",
+      "lastname": "a",
+      "email": "raga@gmail.com",
+      "company": "tzi",
+      "password": "123456789"
+    },
+    {
+      "firstname": "arif",
+      "lastname": "m",
+      "email": "raga@gmail.com",
+      "company": "tzi",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "firstname": "ragav",
+      "lastname": "ajith",
+      "email": "ragav@gmail.com",
+      "company": "tzi",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "firstname": "nandha",
+      "lastname": "kumar",
+      "email": "nandha@gmail.com",
+      "company": "tzi",
+      "password": "654321",
+      "id": 4
     }
   ],
   "comments": [

@@ -8,7 +8,8 @@ const config = {
   container: true,
   mode: 'light',
   presetColor: 'default',
-  themeDirection: 'ltr'
+  themeDirection: 'ltr',
+  Api:" http://localhost:3000/posts"
 };
 
 export default config;

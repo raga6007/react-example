@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink,useNavigate } from 'react-router-dom';
+import commonService from 'sevices/commonService';
 
 // material-ui
 import {
@@ -47,6 +48,7 @@ const AuthRegister = () => {
     const temp = strengthIndicator(value);
     setLevel(strengthColor(temp));
   };
+  const navigate=useNavigate();
 
   useEffect(() => {
     changePassword('');
@@ -61,7 +63,6 @@ const AuthRegister = () => {
           email: '',
           company: '',
           password: '',
-          submit: null
         }}
         validationSchema={Yup.object().shape({
           firstname: Yup.string().max(255).required('First Name is required'),
@@ -71,6 +72,13 @@ const AuthRegister = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
+            commonService.onRegister(values).then((res)=>{
+              if(res?.status=="201"){
+                navigate('/user/dashboard/default');
+              }
+            }).catch((err)=>{
+              console.log(err);
+            })
             setStatus({ success: false });
             setSubmitting(false);
           } catch (err) {

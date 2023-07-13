@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link as RouterLink,useNavigate } from 'react-router-dom';
+import Service from 'sevices/commonService';
 
 // material-ui
 import {
@@ -50,7 +51,6 @@ const AuthLogin = () => {
         initialValues={{
           email: '',
           password: '',
-          submit: null
         }}
 
         validationSchema={Yup.object().shape({
@@ -60,7 +60,14 @@ const AuthLogin = () => {
 
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            navigate('/user/dashboard/default');
+            Service.onLogin(values).then((res)=>{
+                if(res){
+                navigate('/user/dashboard/default');
+                }
+            }).catch((err)=>{
+              console.log(err);
+            })
+           
             setStatus({ success: false });
             setSubmitting(false);
 
